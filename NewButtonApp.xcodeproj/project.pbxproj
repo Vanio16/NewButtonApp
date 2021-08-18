@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		979C7CEC26CCD566000FBE86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 979C7CEA26CCD566000FBE86 /* Main.storyboard */; };
 		979C7CEE26CCD56D000FBE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979C7CED26CCD56D000FBE86 /* Assets.xcassets */; };
 		979C7CF126CCD56D000FBE86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 979C7CEF26CCD56D000FBE86 /* LaunchScreen.storyboard */; };
+		97D542B426CCFE81008F04A0 /* Framezilla.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D542A826CCFCDF008F04A0 /* Framezilla.xcframework */; };
+		97D542B826CD039E008F04A0 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D542B726CD039E008F04A0 /* SecondViewController.swift */; };
+		97D542BA26CD08B5008F04A0 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D542B926CD08B5008F04A0 /* ImageService.swift */; };
+		97D542BC26CD08E6008F04A0 /* IsAbleToRecieveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D542BB26CD08E6008F04A0 /* IsAbleToRecieveData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,12 @@
 		979C7CED26CCD56D000FBE86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		979C7CF026CCD56D000FBE86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		979C7CF226CCD56D000FBE86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97D542A826CCFCDF008F04A0 /* Framezilla.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Framezilla.xcframework; path = Carthage/Build/Framezilla.xcframework; sourceTree = "<group>"; };
+		97D542AC26CCFD21008F04A0 /* Framezilla.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Framezilla.framework; path = "Carthage/Build/Framezilla.xcframework/ios-arm64_armv7/Framezilla.framework"; sourceTree = "<group>"; };
+		97D542B026CCFD8B008F04A0 /* Framezilla.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Framezilla.framework; path = "Carthage/Build/Framezilla.xcframework/ios-arm64_i386_x86_64-simulator/Framezilla.framework"; sourceTree = "<group>"; };
+		97D542B726CD039E008F04A0 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		97D542B926CD08B5008F04A0 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		97D542BB26CD08E6008F04A0 /* IsAbleToRecieveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsAbleToRecieveData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D542B426CCFE81008F04A0 /* Framezilla.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +53,7 @@
 			children = (
 				979C7CE326CCD566000FBE86 /* NewButtonApp */,
 				979C7CE226CCD566000FBE86 /* Products */,
+				97D542A726CCFCDF008F04A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +75,21 @@
 				979C7CED26CCD56D000FBE86 /* Assets.xcassets */,
 				979C7CEF26CCD56D000FBE86 /* LaunchScreen.storyboard */,
 				979C7CF226CCD56D000FBE86 /* Info.plist */,
+				97D542B726CD039E008F04A0 /* SecondViewController.swift */,
+				97D542B926CD08B5008F04A0 /* ImageService.swift */,
+				97D542BB26CD08E6008F04A0 /* IsAbleToRecieveData.swift */,
 			);
 			path = NewButtonApp;
+			sourceTree = "<group>";
+		};
+		97D542A726CCFCDF008F04A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97D542AC26CCFD21008F04A0 /* Framezilla.framework */,
+				97D542B026CCFD8B008F04A0 /* Framezilla.framework */,
+				97D542A826CCFCDF008F04A0 /* Framezilla.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +102,7 @@
 				979C7CDD26CCD566000FBE86 /* Sources */,
 				979C7CDE26CCD566000FBE86 /* Frameworks */,
 				979C7CDF26CCD566000FBE86 /* Resources */,
+				97D542A626CCFC49008F04A0 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -132,13 +158,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		97D542A626CCFC49008F04A0 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Framezilla.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Framezilla.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		979C7CDD26CCD566000FBE86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D542B826CD039E008F04A0 /* SecondViewController.swift in Sources */,
 				979C7CE926CCD566000FBE86 /* ViewController.swift in Sources */,
 				979C7CE526CCD566000FBE86 /* AppDelegate.swift in Sources */,
+				97D542BA26CD08B5008F04A0 /* ImageService.swift in Sources */,
+				97D542BC26CD08E6008F04A0 /* IsAbleToRecieveData.swift in Sources */,
 				979C7CE726CCD566000FBE86 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +340,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5833UA6FFA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Framezilla.xcframework/ios-arm64_armv7",
+					"$(PROJECT_DIR)/Carthage/Build/Framezilla.xcframework/ios-arm64_i386_x86_64-simulator",
+				);
 				INFOPLIST_FILE = NewButtonApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,6 +364,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5833UA6FFA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Framezilla.xcframework/ios-arm64_armv7",
+					"$(PROJECT_DIR)/Carthage/Build/Framezilla.xcframework/ios-arm64_i386_x86_64-simulator",
+				);
 				INFOPLIST_FILE = NewButtonApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
