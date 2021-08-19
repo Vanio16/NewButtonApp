@@ -7,7 +7,12 @@
 
 import UIKit
 import Framezilla
-class ViewController: UIViewController {
+
+protocol ViewControllerOutput {
+    func showSecondScreen()
+}
+
+final class ViewController: UIViewController {
     
     private struct Constants {
         static let textLabelInsetBottom: CGFloat = 20
@@ -19,9 +24,9 @@ class ViewController: UIViewController {
         static let refreshButtonInsetTop: CGFloat = 10
         static let arrowButtonInsetRight: CGFloat = 5
         static let changeScreenButtonInsetTop: CGFloat = 30
-        
     }
     
+    var output: ViewControllerOutput?
     var imageService: ImageService = ImageService.shared
     
     private let textLabel: UILabel = {
@@ -40,7 +45,11 @@ class ViewController: UIViewController {
         return textField
     }()
     
-    let backgroundImage: UIImageView = .init()
+    let backgroundImage: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
     
     private let arrowButton: UIButton = {
         let button = UIButton()
@@ -65,16 +74,9 @@ class ViewController: UIViewController {
         return button
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(backgroundImage)
-        view.addSubview(textLabel)
-        view.addSubview(textTextField)
-        view.addSubview(arrowButton)
-        view.addSubview(refreshButton)
-        view.addSubview(changeScreenButton)
+        view.add(backgroundImage, textLabel, textTextField, arrowButton, refreshButton, changeScreenButton)
     }
     
     override func viewDidLayoutSubviews() {
@@ -87,6 +89,7 @@ class ViewController: UIViewController {
             maker.size(Constants.arrowButtonSize)
                 .right(to: view.nui_safeArea.right,inset: Constants.arrowButtonInsetRight).centerY()
         }
+        
         textTextField.configureFrame{ maker in
             maker.centerY()
                 .left(to: view.nui_safeArea.left, inset: Constants.textTextFieldInsetLeft)
@@ -99,36 +102,37 @@ class ViewController: UIViewController {
                 .centerX()
                 .top(to: textTextField.nui_bottom, inset: Constants.refreshButtonInsetTop)
         }
+        
         changeScreenButton.configureFrame{ maker in
             maker.centerX()
                 .top(to: refreshButton.nui_bottom, inset: Constants.changeScreenButtonInsetTop)
                 .sizeToFit()
         }
+        
         textLabel.configureFrame{ maker in
             maker.top(to: view.nui_safeArea.top)
                 .right(to: view.nui_safeArea.right)
                 .left(to: view.nui_safeArea.left)
                 .bottom(to: textTextField.nui_top, inset: Constants.textLabelInsetBottom)
         }
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         backgroundImage.image  = imageService.getImage()
     }
     
     @objc private func showScreenButton() {
-        let secondViewController = SecondViewController()
-        navigationController?.pushViewController(secondViewController, animated: true)
+        output?.showSecondScreen()
     }
+    
     @objc private func changeText() {
         textLabel.text = textTextField.text
         view.endEditing(true)
     }
+    
     @objc private func changeBackground() {
         imageService.numberBackgroundImage += 1
         backgroundImage.image  = imageService.getImage()
     }
-    
 }
-
